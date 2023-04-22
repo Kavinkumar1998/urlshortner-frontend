@@ -49,7 +49,8 @@ export const Login =()=>{
           console.log(result);
 
             } else {
-  
+              localStorage.setItem("Name", result.Name);
+              localStorage.setItem("Email", result.Email);
               localStorage.setItem("token", result.token);
               localStorage.setItem("Id", result.Id);
       

@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import { useFormik } from 'formik';
 import * as yup from "yup";
 import { Box, Button, Grid, TextField, Typography } from '@mui/material';
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -18,6 +18,7 @@ longurl: yup.string().required("Url  is required")
 const Home = () => {
   const history = useHistory();
   const[short,setshort]=useState([]);
+  const [error,seterror]= useState(false);
    const   [open,setopen]=useState(false);
   const { handleSubmit, handleChange, handleBlur, values, touched, errors } =
   useFormik({
@@ -39,8 +40,10 @@ const Home = () => {
          console.log(result);
          setshort(result.message);
           setopen(!open);
+          seterror(true);
         } else {
         setshort(result.data);
+        seterror(false);
              setopen(!open);
              console.log(result);
         }
@@ -50,6 +53,7 @@ const Home = () => {
 
   const mainurl= async(shorturl)=>{
     try{
+      console.log(shorturl);
       const response = await fetch(`https://urlshortnerapp.onrender.com/${shorturl}`,{
         method:"GET",
         headers: { 
@@ -57,8 +61,8 @@ const Home = () => {
           "content-type": "application/json" },
        });
   const data = await response.json();
-  console.log(data);
-  window.open(`${data}`, "_blank");
+  console.log(data.longurl);
+  window.open(`${data.longurl}`, "_blank");
     }catch(error){
   console.log(error);
     }
@@ -66,6 +70,7 @@ const Home = () => {
 
 
   return (
+
     <div className='Home'>
       <Navbar/>
 <div className="Home-main">
@@ -99,13 +104,26 @@ Submit
         </Box>
 </div>
 <div className="shorturl">
-   <Typography 
-             sx={{fontFamily:"cursive",fontWeight:"Bold",color:"red",
+{error?    <Typography 
+           sx={{fontWeight:"Bold",color:"red",
           ...(!open && { display: 'none' })}} 
           component="h1"
            variant="h5" 
-           onClick={()=>mainurl(short)}
-           >https://urlshortnerapp.onrender.com/{short}</Typography>
+           >{short}</Typography>:
+
+
+
+<Typography 
+           sx={{fontWeight:"Bold",color:"black",
+          ...(!open && { display: 'none' })}} 
+          component="h1"
+           variant="h5" 
+  
+           ><a target='blank' href={`https://urlshortnerapp.onrender.com/${short}`}>https://urlshortnerapp.onrender.com/{short}</a></Typography>
+           
+      
+} 
+  
 </div>
     </div>
   )

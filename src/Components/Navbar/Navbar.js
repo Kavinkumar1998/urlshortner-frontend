@@ -24,7 +24,6 @@ const Navbar = () => {
         <Link  to="/Home">   <li>Home</li> </Link>
           <Link  to="/Dashboard"> <li>Dashboard</li></Link>
            <Link  to="/About"> <li>About</li></Link>
-           <Link  to="/Profile"> <li>Profile</li></Link>
            <li  onClick={()=>logout()}>Logout</li>
           
         </ul>

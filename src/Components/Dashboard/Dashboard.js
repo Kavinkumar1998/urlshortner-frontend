@@ -38,8 +38,8 @@ const Dashboard = () => {
     {url.map((url)=>(
                        <div className="container" key ={url._id}>
                        <div className="contentArea">
-                       <Typography   component="h1" variant="h6">Original Url: <p>{url.longurl}</p></Typography>
-                       <Typography   component="h1" variant="h6">Shortern Url: <p>https://urlshortnerapp.onrender.com/{url.shorturl}</p></Typography>
+                       <Typography sx={{ mt: 1, mb: 2,}}  component="h1" variant="h6">Original Url: <p>{url.longurl}</p></Typography>
+                       <Typography   component="h1" variant="h6">Shortern Url:<a target='blank' href={`https://urlshortnerapp.onrender.com/${url.shorturl}`}><p>https://urlshortnerapp.onrender.com/{url.shorturl}</p></a> </Typography>
                        <Typography   component="h1" variant="h6">Clicks: <span>{url.click}</span></Typography>
                        <Typography   component="h1" variant="h6">Date: <span>{url.date}</span></Typography>
                        

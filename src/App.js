@@ -7,6 +7,8 @@ import Forgetpassword from './Components/Forgetpassword/Forgetpassword';
 import { Setpassword } from './Components/Setpassword/Setpassword';
 import Home from './Components/Home/Home';
 import Dashboard from './Components/Dashboard/Dashboard';
+import { About } from './Components/About/About';
+
 
 function App() {
   return (
@@ -39,6 +41,12 @@ function App() {
       <Route path="/Dashboard">
      <Dashboard/>
       </Route>
+
+      <Route path="/About">
+     <About/>
+      </Route>
+
+  
 
     </div>
   );
