@@ -3,10 +3,10 @@ import  { useEffect, useState } from "react";
 import "./Dashboard.css";
 import {  Typography } from '@mui/material';
 import Navbar from '../Navbar/Navbar';
-import { useHistory } from "react-router-dom";
+
 
 const Dashboard = () => {
-    const history = useHistory();
+
     const [url,seturl]= useState([]);
     useEffect(() =>{
     const geturl = async() =>{
@@ -30,7 +30,7 @@ const Dashboard = () => {
     console.log(url)
       return (
     
-    <div classNameName="card-container"> 
+    <div classNameName="main"> 
          <Navbar/>
     <div className="main-content">
     <Typography sx={{ mt: 3, mb: 2,fontFamily:"cursive",fontWeight:"Bold",fontSize:"3rem"}} component="h1" variant="h5"> urls </Typography>

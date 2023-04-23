@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+.Home{
+    height: 100vh;
+    padding-top: 5rem;
+    background-image: url("https://img.freepik.com/premium-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-71715.jpg");
+    background-repeat: no-repeat;
+    background-size: 100vw 120vh ;
+}
 .Home-main{
     margin-top: 10rem;
     display: flex;
