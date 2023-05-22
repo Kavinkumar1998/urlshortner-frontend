@@ -169,7 +169,6 @@ export const Signup =()=>{
             </Grid>
           </Box>
         </Box>
-      <Typography  component="h1" variant="h5">  Sign up   </Typography>
       </Container>
       <span></span>
       </div>
